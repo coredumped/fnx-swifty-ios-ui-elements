@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		822CD2901B67F98E001D2857 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822CD28F1B67F98E001D2857 /* CircularProgressView.swift */; };
 		824CDD071A8B9AE200AA645F /* swiftyui4ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 824CDD061A8B9AE200AA645F /* swiftyui4ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		824CDD0D1A8B9AE200AA645F /* swiftyui4ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 824CDD011A8B9AE200AA645F /* swiftyui4ios.framework */; };
 		824CDD141A8B9AE200AA645F /* swiftyui4iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824CDD131A8B9AE200AA645F /* swiftyui4iosTests.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		822CD28F1B67F98E001D2857 /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		824CDD011A8B9AE200AA645F /* swiftyui4ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = swiftyui4ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		824CDD051A8B9AE200AA645F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		824CDD061A8B9AE200AA645F /* swiftyui4ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = swiftyui4ios.h; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				824CDD061A8B9AE200AA645F /* swiftyui4ios.h */,
 				824CDD041A8B9AE200AA645F /* Supporting Files */,
 				82EFAE5E1A8BB11600C20B00 /* RoundedView.swift */,
+				822CD28F1B67F98E001D2857 /* CircularProgressView.swift */,
 			);
 			path = swiftyui4ios;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				822CD2901B67F98E001D2857 /* CircularProgressView.swift in Sources */,
 				82EFAE5F1A8BB11600C20B00 /* RoundedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
