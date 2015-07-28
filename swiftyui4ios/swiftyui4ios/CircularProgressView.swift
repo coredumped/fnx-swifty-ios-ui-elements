@@ -50,7 +50,7 @@ class CircularProgressView: UIView {
         let borderLayer = CAShapeLayer()
         borderLayer.strokeColor = tintColor.CGColor
         borderLayer.lineWidth = 2.0
-        self.layer.addSublayer(layer)
+        self.layer.addSublayer(borderLayer)
     }
 
 }
