@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class CircularProgressView: UIView {
     
     private var progressLayer : CAShapeLayer?
