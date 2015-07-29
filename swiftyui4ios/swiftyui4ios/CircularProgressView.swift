@@ -9,19 +9,28 @@
 import UIKit
 
 @IBDesignable
-class CircularProgressView: UIView {
+public class CircularProgressView: UIView {
     
     private var progressLayer : CAShapeLayer?
+    private var borderLayer : CAShapeLayer?
     
-    var progress : CGFloat = 0 {
+    public var progress : CGFloat = 0 {
         willSet(v) {
             if v > 1.0 || v < 0.0 {
-                fatalError("progress must be a value between 0 and 1")
+                fatalError(String(format: "progress must be a value between 0 and 1, value was %lf", v))
             }
         }
         didSet {
             dispatch_async(dispatch_get_main_queue(), {
                 self.updateProgress()
+                
+                if(self.progress == 0 || self.progress >= 1) {
+                    self.hidden = true
+                }
+                else {
+                    self.hidden = false
+                }
+
             })
         }
     }
@@ -33,7 +42,9 @@ class CircularProgressView: UIView {
             radius = self.bounds.size.height
         }
         radius = radius / 2.0
-        let arc = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0.0, endAngle: self.progress * CGFloat(M_PI) * 2, clockwise: true)
+        let arc = UIBezierPath()
+        arc.moveToPoint(center)
+        arc.addArcWithCenter(center, radius: radius, startAngle: 0.0, endAngle: self.progress * CGFloat(M_PI) * 2, clockwise: true)
         if progressLayer == nil {
             progressLayer = CAShapeLayer()
             self.layer.addSublayer(progressLayer)
@@ -43,14 +54,19 @@ class CircularProgressView: UIView {
         progressLayer?.fillColor = self.tintColor.CGColor
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
-        let circle = UIBezierPath(ovalInRect: self.bounds)
-        circle.stroke()
-        let borderLayer = CAShapeLayer()
-        borderLayer.strokeColor = tintColor.CGColor
-        borderLayer.lineWidth = 2.0
-        self.layer.addSublayer(borderLayer)
+        if(borderLayer == nil) {
+            //backgroundColor = UIColor.clearColor()
+            let circle = UIBezierPath(ovalInRect: self.bounds)
+            circle.stroke()
+            borderLayer = CAShapeLayer()
+            borderLayer?.fillColor = UIColor.clearColor().CGColor
+            borderLayer?.strokeColor = tintColor.CGColor
+            borderLayer?.lineWidth = 2.0
+            borderLayer?.path = circle.CGPath
+            self.layer.addSublayer(borderLayer!)
+        }
     }
 
 }

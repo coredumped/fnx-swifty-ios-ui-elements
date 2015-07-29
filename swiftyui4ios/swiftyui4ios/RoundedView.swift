@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class RoundedView: UIView {
+public class RoundedView: UIView {
     
     var roundLayer : CAShapeLayer?
     
@@ -20,7 +20,7 @@ class RoundedView: UIView {
     @IBInspectable
     var borderWidth : CGFloat = 1.0
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         roundLayer = CAShapeLayer()
         var circle : UIBezierPath = UIBezierPath(ovalInRect: bounds)
