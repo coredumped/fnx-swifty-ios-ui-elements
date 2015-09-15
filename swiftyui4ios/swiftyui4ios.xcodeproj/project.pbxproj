@@ -164,6 +164,8 @@
 		824CDCF81A8B9AE200AA645F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "fn(x) Software";
 				TargetAttributes = {

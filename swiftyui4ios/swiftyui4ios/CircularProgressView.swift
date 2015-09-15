@@ -14,7 +14,7 @@ public class CircularProgressView: UIView {
     private var progressLayer : CAShapeLayer?
     private var borderLayer : CAShapeLayer?
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.contentMode = .Redraw
         self.backgroundColor = UIColor.clearColor()
@@ -79,7 +79,7 @@ public class CircularProgressView: UIView {
         arc.addArcWithCenter(center, radius: radius, startAngle: 0.0, endAngle: self.progress * CGFloat(M_PI) * 2, clockwise: true)
         if progressLayer == nil {
             progressLayer = CAShapeLayer()
-            self.layer.addSublayer(progressLayer)
+            if (progressLayer != nil) { self.layer.addSublayer(progressLayer!) }
         }
         arc.fill()
         progressLayer?.path = arc.CGPath

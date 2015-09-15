@@ -23,17 +23,17 @@ public class RoundedView: UIView {
     override public func layoutSubviews() {
         super.layoutSubviews()
         roundLayer = CAShapeLayer()
-        var circle : UIBezierPath = UIBezierPath(ovalInRect: bounds)
+        let circle : UIBezierPath = UIBezierPath(ovalInRect: bounds)
         roundLayer?.path = circle.CGPath
         layer.mask = roundLayer
         if(showBorder) {
-            var borderLayer = CAShapeLayer()
-            var border = UIBezierPath(ovalInRect: bounds)
+            let borderLayer = CAShapeLayer()
+            let border = UIBezierPath(ovalInRect: bounds)
             border.lineWidth = borderWidth
             borderLayer.strokeColor = borderColor.CGColor
             borderLayer.fillColor = UIColor(white: 0.0, alpha: 0.0).CGColor
             borderLayer.path = border.CGPath
-            border.strokeWithBlendMode(kCGBlendModeMultiply, alpha: 0.8)
+            border.strokeWithBlendMode(CGBlendMode.Multiply, alpha: 0.8)
             layer.addSublayer(borderLayer)
         }
     }
