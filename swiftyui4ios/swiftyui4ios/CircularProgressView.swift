@@ -110,8 +110,8 @@ public class CircularProgressView: UIView {
         let slice = CAShapeLayer()
         slice.fillColor = self.tintColor.CGColor
         slice.path = slicePath
-        let anim = CABasicAnimation(keyPath: "opcity")
-        anim.duration = 0.25
+        let anim = CABasicAnimation(keyPath: "opacity")
+        anim.duration = 0.125
         anim.fromValue = 0
         //anim.toValue = self.progress * two_pi
         anim.toValue = 1.0

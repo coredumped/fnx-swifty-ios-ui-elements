@@ -22,6 +22,8 @@
 		824CDD071A8B9AE200AA645F /* swiftyui4ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 824CDD061A8B9AE200AA645F /* swiftyui4ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		824CDD0D1A8B9AE200AA645F /* swiftyui4ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 824CDD011A8B9AE200AA645F /* swiftyui4ios.framework */; };
 		824CDD141A8B9AE200AA645F /* swiftyui4iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824CDD131A8B9AE200AA645F /* swiftyui4iosTests.swift */; };
+		8277B0991C88C775006908AC /* IndefiniteProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277B0981C88C775006908AC /* IndefiniteProgressView.swift */; };
+		827DED751C8DE79D00BFEA61 /* IndefiniteProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827DED741C8DE79D00BFEA61 /* IndefiniteProgressViewController.swift */; };
 		82D01B101C80155200311898 /* RoundCorneredRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D01B0F1C80155200311898 /* RoundCorneredRectView.swift */; };
 		82EFAE5F1A8BB11600C20B00 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EFAE5E1A8BB11600C20B00 /* RoundedView.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +96,8 @@
 		824CDD0C1A8B9AE200AA645F /* swiftyui4iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swiftyui4iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		824CDD121A8B9AE200AA645F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		824CDD131A8B9AE200AA645F /* swiftyui4iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftyui4iosTests.swift; sourceTree = "<group>"; };
+		8277B0981C88C775006908AC /* IndefiniteProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndefiniteProgressView.swift; sourceTree = "<group>"; };
+		827DED741C8DE79D00BFEA61 /* IndefiniteProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndefiniteProgressViewController.swift; sourceTree = "<group>"; };
 		82D01B0F1C80155200311898 /* RoundCorneredRectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCorneredRectView.swift; sourceTree = "<group>"; };
 		82EFAE5E1A8BB11600C20B00 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +150,7 @@
 				82237C951C73CE1600557F20 /* MasterViewController.swift */,
 				82237C971C73CE1600557F20 /* DetailViewController.swift */,
 				82237CC71C73FA5500557F20 /* CircularProgressViewController.swift */,
+				827DED741C8DE79D00BFEA61 /* IndefiniteProgressViewController.swift */,
 				82237C991C73CE1600557F20 /* Main.storyboard */,
 				82237C9C1C73CE1600557F20 /* Assets.xcassets */,
 				82237C9E1C73CE1600557F20 /* LaunchScreen.storyboard */,
@@ -204,6 +209,7 @@
 				82EFAE5E1A8BB11600C20B00 /* RoundedView.swift */,
 				82D01B0F1C80155200311898 /* RoundCorneredRectView.swift */,
 				822CD28F1B67F98E001D2857 /* CircularProgressView.swift */,
+				8277B0981C88C775006908AC /* IndefiniteProgressView.swift */,
 			);
 			path = swiftyui4ios;
 			sourceTree = "<group>";
@@ -442,6 +448,7 @@
 				82237C981C73CE1600557F20 /* DetailViewController.swift in Sources */,
 				82237C961C73CE1600557F20 /* MasterViewController.swift in Sources */,
 				82237C941C73CE1600557F20 /* AppDelegate.swift in Sources */,
+				827DED751C8DE79D00BFEA61 /* IndefiniteProgressViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +474,7 @@
 			files = (
 				822CD2901B67F98E001D2857 /* CircularProgressView.swift in Sources */,
 				82D01B101C80155200311898 /* RoundCorneredRectView.swift in Sources */,
+				8277B0991C88C775006908AC /* IndefiniteProgressView.swift in Sources */,
 				82EFAE5F1A8BB11600C20B00 /* RoundedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
