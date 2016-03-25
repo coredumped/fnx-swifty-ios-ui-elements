@@ -25,6 +25,7 @@
 		8277B0991C88C775006908AC /* IndefiniteProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277B0981C88C775006908AC /* IndefiniteProgressView.swift */; };
 		827DED751C8DE79D00BFEA61 /* IndefiniteProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827DED741C8DE79D00BFEA61 /* IndefiniteProgressViewController.swift */; };
 		82D01B101C80155200311898 /* RoundCorneredRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D01B0F1C80155200311898 /* RoundCorneredRectView.swift */; };
+		82EBC7AC1CA5CE2A00382A83 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EBC7AB1CA5CE2A00382A83 /* GradientView.swift */; };
 		82EFAE5F1A8BB11600C20B00 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EFAE5E1A8BB11600C20B00 /* RoundedView.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		8277B0981C88C775006908AC /* IndefiniteProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndefiniteProgressView.swift; sourceTree = "<group>"; };
 		827DED741C8DE79D00BFEA61 /* IndefiniteProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndefiniteProgressViewController.swift; sourceTree = "<group>"; };
 		82D01B0F1C80155200311898 /* RoundCorneredRectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCorneredRectView.swift; sourceTree = "<group>"; };
+		82EBC7AB1CA5CE2A00382A83 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		82EFAE5E1A8BB11600C20B00 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -210,6 +212,7 @@
 				82D01B0F1C80155200311898 /* RoundCorneredRectView.swift */,
 				822CD28F1B67F98E001D2857 /* CircularProgressView.swift */,
 				8277B0981C88C775006908AC /* IndefiniteProgressView.swift */,
+				82EBC7AB1CA5CE2A00382A83 /* GradientView.swift */,
 			);
 			path = swiftyui4ios;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 			files = (
 				822CD2901B67F98E001D2857 /* CircularProgressView.swift in Sources */,
 				82D01B101C80155200311898 /* RoundCorneredRectView.swift in Sources */,
+				82EBC7AC1CA5CE2A00382A83 /* GradientView.swift in Sources */,
 				8277B0991C88C775006908AC /* IndefiniteProgressView.swift in Sources */,
 				82EFAE5F1A8BB11600C20B00 /* RoundedView.swift in Sources */,
 			);
