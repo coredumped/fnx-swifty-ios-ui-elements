@@ -37,7 +37,7 @@ class CircularProgressViewController: UIViewController {
     }
     */
     @IBAction func startProgress(sender: UIBarButtonItem) {
-        NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: "updateProgress", userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: #selector(CircularProgressViewController.updateProgress), userInfo: nil, repeats: true)
     }
     
     func updateProgress () {

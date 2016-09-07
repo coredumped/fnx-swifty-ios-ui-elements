@@ -361,18 +361,22 @@
 					82237C901C73CE1600557F20 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = J72P72P4M4;
+						LastSwiftMigration = 0800;
 					};
 					82237CA51C73CE1600557F20 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 82237C901C73CE1600557F20;
 					};
 					82237CB01C73CE1600557F20 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 82237C901C73CE1600557F20;
 					};
 					824CDD001A8B9AE200AA645F = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = J72P72P4M4;
+						LastSwiftMigration = 0800;
 					};
 					824CDD0B1A8B9AE200AA645F = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -552,6 +556,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fnxsoftware.SwiftyUIElements;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -571,6 +576,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fnxsoftware.SwiftyUIElements;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -586,6 +592,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fnxsoftware.SwiftyUIElementsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyUIElements.app/SwiftyUIElements";
 			};
 			name = Debug;
@@ -602,6 +609,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fnxsoftware.SwiftyUIElementsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyUIElements.app/SwiftyUIElements";
 			};
 			name = Release;
@@ -617,6 +625,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fnxsoftware.SwiftyUIElementsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = SwiftyUIElements;
 				USES_XCTRUNNER = YES;
 			};
@@ -633,6 +642,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fnxsoftware.SwiftyUIElementsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = SwiftyUIElements;
 				USES_XCTRUNNER = YES;
 			};
@@ -742,6 +752,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -761,6 +772,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fnxsoftware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
