@@ -10,59 +10,62 @@ import UIKit
 
 @IBDesignable
 class GradientView: UIView {
-    private var backingLayer : CGLayer?
-    private var gradient : CGGradientRef?
+    fileprivate var backingLayer : CGLayer?
+    fileprivate var gradient : CGGradient?
     
     
-    func drawGradient(ctx : CGContext, inRect rect : CGRect) {
+    func drawGradient(_ ctx : CGContext, inRect rect : CGRect) {
         if backingLayer == nil {
-            backingLayer = CGLayerCreateWithContext(ctx, rect.size, nil)
-            let layerCtx = CGLayerGetContext(backingLayer!)
-            CGContextSaveGState(layerCtx!)
+            backingLayer = CGLayer(ctx, size: rect.size, auxiliaryInfo: nil)
+            let layerCtx = backingLayer!.context
+            layerCtx!.saveGState()
             if gradient == nil {
                 if middleColor != nil {
-                    gradient = CGGradientCreateWithColors(
-                        CGBitmapContextGetColorSpace(layerCtx!),
-                        [startColor!.CGColor, middleColor!.CGColor, endColor!.CGColor],
-                        [startPosition, middlePosition, endPosition]
+                    gradient = CGGradient(
+                        colorsSpace: layerCtx!.colorSpace,
+                        colors: [startColor!.cgColor, middleColor!.cgColor, endColor!.cgColor] as NSArray,
+                        locations: [startPosition, middlePosition, endPosition]
                     )
                 }
                 else {
-                    gradient = CGGradientCreateWithColors(
-                        CGBitmapContextGetColorSpace(layerCtx!),
-                        [startColor!.CGColor, endColor!.CGColor],
-                        [startPosition, endPosition]
+                    gradient = CGGradient(
+                        colorsSpace: layerCtx!.colorSpace,
+                        colors: [startColor!.cgColor, endColor!.cgColor] as NSArray,
+                        locations: [startPosition, endPosition]
                     )
                 }
             }
             if reversedFill {
-                if gradientOrientation == .Vertical {
-                    CGContextDrawLinearGradient(layerCtx!, self.gradient!, CGPoint(x: 0, y: rect.size.height), CGPoint(x: 0, y: 0), .DrawsAfterEndLocation)
+                if gradientOrientation == .vertical {
+                    layerCtx!.drawLinearGradient(self.gradient!, start: CGPoint(x: 0, y: rect.size.height), end: CGPoint(x: 0, y: 0), options: .drawsAfterEndLocation)
                 }
                 else {
-                    CGContextDrawLinearGradient(layerCtx!, self.gradient!, CGPoint(x: rect.size.width, y: 0), CGPoint(x: 0, y: 0), .DrawsAfterEndLocation)
+                    layerCtx!.drawLinearGradient(self.gradient!, start: CGPoint(x: rect.size.width, y: 0), end: CGPoint(x: 0, y: 0), options: .drawsAfterEndLocation)
                 }
             }
             else {
-                if gradientOrientation == .Vertical {
-                    CGContextDrawLinearGradient(layerCtx!, self.gradient!, CGPoint(x: 0, y: 0), CGPoint(x: 0, y: rect.size.height), .DrawsAfterEndLocation)
+                if gradientOrientation == .vertical {
+                    layerCtx!.drawLinearGradient(self.gradient!, start: CGPoint(x: 0, y: 0), end: CGPoint(x: 0, y: rect.size.height), options: .drawsAfterEndLocation)
                 }
                 else {
-                    CGContextDrawLinearGradient(layerCtx!, self.gradient!, CGPoint(x: 0, y: 0), CGPoint(x: rect.size.width, y: 0), .DrawsAfterEndLocation)
+                    layerCtx!.drawLinearGradient(self.gradient!, start: CGPoint(x: 0, y: 0), end: CGPoint(x: rect.size.width, y: 0), options: .drawsAfterEndLocation)
                 }
             }
-            CGContextRestoreGState(layerCtx!)
+            layerCtx!.restoreGState()
         }
-        CGContextDrawLayerInRect(ctx, rect, backingLayer!)
+        //CGContextDrawLayerInRect(ctx, rect, backingLayer!)
+        //draw(backingLayer!, in: ctx)
+        ctx.draw(backingLayer!, in: rect)
+
     }
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         if startColor != nil && endColor != nil {
             let ctx = UIGraphicsGetCurrentContext()
-            CGContextSaveGState(ctx!)
+            ctx!.saveGState()
             drawGradient(ctx!, inRect: rect)
-            CGContextRestoreGState(ctx!)
+            ctx!.restoreGState()
         }
     }
     
@@ -120,11 +123,11 @@ class GradientView: UIView {
     }
     
     enum GradientOrientationTypes {
-        case Vertical, Horizontal
+        case vertical, horizontal
     }
     
     @IBInspectable
-    var gradientOrientation : GradientOrientationTypes = .Vertical {
+    var gradientOrientation : GradientOrientationTypes = .vertical {
         didSet {
             gradient = nil
             backingLayer = nil

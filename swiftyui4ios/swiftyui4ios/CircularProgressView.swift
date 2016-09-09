@@ -9,14 +9,14 @@
 import UIKit
 
 @IBDesignable
-public class CircularProgressView: UIView {
+open class CircularProgressView: UIView {
     
-    private var progressLayer : CALayer?
-    private var borderLayer : CAShapeLayer = CAShapeLayer()
+    fileprivate var progressLayer : CALayer?
+    fileprivate var borderLayer : CAShapeLayer = CAShapeLayer()
     
-    private func setup() {
+    fileprivate func setup() {
         //self.contentMode = .Redraw
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         progressLayer = CALayer()
         self.layer.addSublayer(progressLayer!)
         
@@ -24,8 +24,8 @@ public class CircularProgressView: UIView {
         
         //borderLayer = CAShapeLayer()
         
-        borderLayer.fillColor = UIColor.clearColor().CGColor
-        borderLayer.strokeColor = tintColor.CGColor
+        borderLayer.fillColor = UIColor.clear.cgColor
+        borderLayer.strokeColor = tintColor.cgColor
         self.layer.addSublayer(borderLayer)
     }
     
@@ -48,9 +48,9 @@ public class CircularProgressView: UIView {
     */
     
     
-    private var prevProgress : CGFloat = 0
+    fileprivate var prevProgress : CGFloat = 0
     
-    @IBInspectable public var progress : CGFloat = 0.0 {
+    @IBInspectable open var progress : CGFloat = 0.0 {
         didSet {
             self.setNeedsLayout()
             if progress <= 0.0 {
@@ -73,18 +73,18 @@ public class CircularProgressView: UIView {
         }
     }
     
-    private func getSlice(center : CGPoint, radius : CGFloat, startAngle : CGFloat, endAngle : CGFloat) -> CGPathRef {
+    fileprivate func getSlice(_ center : CGPoint, radius : CGFloat, startAngle : CGFloat, endAngle : CGFloat) -> CGPath {
         let arc = UIBezierPath()
-        arc.moveToPoint(center)
-        arc.addArcWithCenter(center, radius: radius, startAngle: startAngle + startingAngle, endAngle: endAngle + startingAngle, clockwise: true)
+        arc.move(to: center)
+        arc.addArc(withCenter: center, radius: radius, startAngle: startAngle + startingAngle, endAngle: endAngle + startingAngle, clockwise: true)
         arc.fill()
-        return arc.CGPath
+        return arc.cgPath
     }
     
     
-    private let two_pi = CGFloat(2 * M_PI)
-    private func animateSlice() -> CAShapeLayer {
-        let center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
+    fileprivate let two_pi = CGFloat(2 * M_PI)
+    fileprivate func animateSlice() -> CAShapeLayer {
+        let center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
         var diameter = self.bounds.size.width
         if(self.bounds.size.height < diameter) {
             diameter = self.bounds.size.height
@@ -108,28 +108,28 @@ public class CircularProgressView: UIView {
         */
         let slicePath = getSlice(center, radius: radius, startAngle: 0, endAngle: self.progress * two_pi)
         let slice = CAShapeLayer()
-        slice.fillColor = self.tintColor.CGColor
+        slice.fillColor = self.tintColor.cgColor
         slice.path = slicePath
         let anim = CABasicAnimation(keyPath: "opacity")
         anim.duration = 0.125
         anim.fromValue = 0
         //anim.toValue = self.progress * two_pi
         anim.toValue = 1.0
-        anim.removedOnCompletion = false
+        anim.isRemovedOnCompletion = false
         anim.fillMode = kCAFillModeForwards
         return slice
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
     super.layoutSubviews()
         let roundLayer = CAShapeLayer()
-        let circularMask : UIBezierPath = UIBezierPath(ovalInRect: bounds)
-        roundLayer.path = circularMask.CGPath
+        let circularMask : UIBezierPath = UIBezierPath(ovalIn: bounds)
+        roundLayer.path = circularMask.cgPath
         layer.mask = roundLayer
 
-        let circle = UIBezierPath(ovalInRect: self.bounds)
+        let circle = UIBezierPath(ovalIn: self.bounds)
         circle.stroke()
-        self.borderLayer.path = circle.CGPath
+        self.borderLayer.path = circle.cgPath
         self.progressLayer?.addSublayer(animateSlice())
     }
     

@@ -9,22 +9,22 @@
 import UIKit
 
 @IBDesignable
-public class IndefiniteProgressView: UIView {
+open class IndefiniteProgressView: UIView {
     public enum ProgressStyle {
-        case Circular, Custom
+        case circular, custom
     }
     
-    public enum ProgressStylingError : ErrorType {
-        case StyleNotSupported
+    public enum ProgressStylingError : Error {
+        case styleNotSupported
     }
     
-    private var animationLayer : CALayer?
-    private var startProgressAnimation : CABasicAnimation?
+    fileprivate var animationLayer : CALayer?
+    fileprivate var startProgressAnimation : CABasicAnimation?
 
     
     
     @IBInspectable
-    public var animating = false {
+    open var animating = false {
         didSet {
             if animating {
                 animationLayer?.opacity = 1
@@ -42,29 +42,29 @@ public class IndefiniteProgressView: UIView {
         }
     }
     
-    public var style : ProgressStyle = .Circular {
+    open var style : ProgressStyle = .circular {
         didSet {
             setup()
             self.setNeedsLayout()
         }
     }
     
-    private func startAnimation () {
-        if style == .Circular {
+    fileprivate func startAnimation () {
+        if style == .circular {
             if startProgressAnimation == nil {
                 startProgressAnimation = CABasicAnimation()
                 startProgressAnimation?.fromValue = 0
                 startProgressAnimation?.toValue = M_PI * 2.0
                 startProgressAnimation?.duration = 1
                 startProgressAnimation?.keyPath = "transform.rotation.z"
-                startProgressAnimation?.removedOnCompletion = true
+                startProgressAnimation?.isRemovedOnCompletion = true
                 startProgressAnimation?.repeatCount = Float.infinity
             }
-            self.animationLayer?.addAnimation(startProgressAnimation!, forKey: "transform.rotation.z")
+            self.animationLayer?.add(startProgressAnimation!, forKey: "transform.rotation.z")
         }
     }
     
-    private func diameterForCircularBorder () -> CGFloat {
+    fileprivate func diameterForCircularBorder () -> CGFloat {
         var diameter = self.bounds.width
         if self.bounds.height < self.bounds.width {
             diameter = self.bounds.height
@@ -73,38 +73,38 @@ public class IndefiniteProgressView: UIView {
     }
     
     
-    private func drawIndicatorToLayer (theLayer : CAShapeLayer)  {
-        if style == .Circular {
+    fileprivate func drawIndicatorToLayer (_ theLayer : CAShapeLayer)  {
+        if style == .circular {
             let diameter = diameterForCircularBorder()
             let radius = diameter / 2.0
             let centerX = CGPoint(x: 0.0, y: 0.0)
             let circle = UIBezierPath(arcCenter: centerX, radius: radius, startAngle: 0.0, endAngle: CGFloat(4.0 * M_PI / 2.125), clockwise: true)
             theLayer.opacity = 1.0
-            theLayer.path = circle.CGPath
+            theLayer.path = circle.cgPath
             theLayer.lineWidth = diameter / 10.0
-            theLayer.strokeColor = self.tintColor.CGColor
-            theLayer.fillColor = UIColor(white: 1.0, alpha: 0.0).CGColor
+            theLayer.strokeColor = self.tintColor.cgColor
+            theLayer.fillColor = UIColor(white: 1.0, alpha: 0.0).cgColor
             theLayer.lineCap = kCALineCapButt
         }
     }
     
-    private func applyCircularBorderMaskWithDiameter (diameter : CGFloat) {
-        let borderMask = UIBezierPath(ovalInRect: CGRectMake((self.bounds.width - diameter) / 2.0, (self.bounds.height - diameter) / 2.0, diameter, diameter))
+    fileprivate func applyCircularBorderMaskWithDiameter (_ diameter : CGFloat) {
+        let borderMask = UIBezierPath(ovalIn: CGRect(x: (self.bounds.width - diameter) / 2.0, y: (self.bounds.height - diameter) / 2.0, width: diameter, height: diameter))
         let borderLayer = CAShapeLayer()
-        borderLayer.path = borderMask.CGPath
+        borderLayer.path = borderMask.cgPath
         self.layer.mask = borderLayer
     }
     
-    private func setup () {
-        if style == .Circular {
+    fileprivate func setup () {
+        if style == .circular {
             if(self.animationLayer != nil) {
                 self.animationLayer?.removeFromSuperlayer()
             }
             self.animationLayer = CALayer()
             let hh = self.bounds.size.height / 2.0
             let hw = self.bounds.size.width / 2.0
-            self.animationLayer?.bounds = CGRectMake(-hw, -hh, self.bounds.width, self.bounds.height)
-            self.animationLayer?.setAffineTransform(CGAffineTransformMakeTranslation(self.bounds.size.width / 2.0, self.bounds.size.height / 2.0))
+            self.animationLayer?.bounds = CGRect(x: -hw, y: -hh, width: self.bounds.width, height: self.bounds.height)
+            self.animationLayer?.setAffineTransform(CGAffineTransform(translationX: self.bounds.size.width / 2.0, y: self.bounds.size.height / 2.0))
             self.layer.addSublayer(animationLayer!)
             applyCircularBorderMaskWithDiameter(diameterForCircularBorder())
         }
@@ -120,7 +120,7 @@ public class IndefiniteProgressView: UIView {
         setup()
     }
     
-    public override func prepareForInterfaceBuilder() {
-        style = .Circular
+    open override func prepareForInterfaceBuilder() {
+        style = .circular
     }
 }

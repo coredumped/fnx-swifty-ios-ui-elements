@@ -36,8 +36,8 @@ class CircularProgressViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func startProgress(sender: UIBarButtonItem) {
-        NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: #selector(CircularProgressViewController.updateProgress), userInfo: nil, repeats: true)
+    @IBAction func startProgress(_ sender: UIBarButtonItem) {
+        Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(CircularProgressViewController.updateProgress), userInfo: nil, repeats: true)
     }
     
     func updateProgress () {

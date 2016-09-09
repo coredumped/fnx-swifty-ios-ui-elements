@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public class RoundCorneredRectView: UIView {
+open class RoundCorneredRectView: UIView {
     
     var roundedRectLayer : CAShapeLayer?
     
@@ -20,7 +20,7 @@ public class RoundCorneredRectView: UIView {
         }
     }
     @IBInspectable
-    var borderColor : UIColor = UIColor.blackColor() {
+    var borderColor : UIColor = UIColor.black {
         didSet {
             setNeedsLayout()
         }
@@ -38,20 +38,20 @@ public class RoundCorneredRectView: UIView {
         }
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         roundedRectLayer = CAShapeLayer()
         let roundedRect : UIBezierPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius)
-        roundedRectLayer?.path = roundedRect.CGPath
+        roundedRectLayer?.path = roundedRect.cgPath
         layer.mask = roundedRectLayer
         if(showBorder) {
             let borderLayer = CAShapeLayer()
             let border = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius)
-            borderLayer.strokeColor = borderColor.CGColor
-            borderLayer.fillColor = UIColor(white: 0.0, alpha: 0.0).CGColor
+            borderLayer.strokeColor = borderColor.cgColor
+            borderLayer.fillColor = UIColor(white: 0.0, alpha: 0.0).cgColor
             borderLayer.lineWidth = self.borderWidth
             borderLayer.lineJoin = kCALineJoinRound
-            borderLayer.path = border.CGPath
+            borderLayer.path = border.cgPath
             layer.addSublayer(borderLayer)
         }
     }

@@ -36,7 +36,7 @@ class IndefiniteProgressViewController: UIViewController {
     */
 
     var animate = false
-    @IBAction func animateProgress(sender: AnyObject) {
+    @IBAction func animateProgress(_ sender: AnyObject) {
         animate = !animate
         progress.animating = animate
     }

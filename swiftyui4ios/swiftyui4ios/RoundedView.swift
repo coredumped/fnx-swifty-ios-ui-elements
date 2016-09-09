@@ -9,31 +9,31 @@
 import UIKit
 
 @IBDesignable
-public class RoundedView: UIView {
+open class RoundedView: UIView {
     
     var roundLayer : CAShapeLayer?
     
     @IBInspectable
     var showBorder : Bool = false
     @IBInspectable
-    var borderColor : UIColor = UIColor.blackColor()
+    var borderColor : UIColor = UIColor.black
     @IBInspectable
     var borderWidth : CGFloat = 1.0
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         roundLayer = CAShapeLayer()
-        let circle : UIBezierPath = UIBezierPath(ovalInRect: bounds)
-        roundLayer?.path = circle.CGPath
+        let circle : UIBezierPath = UIBezierPath(ovalIn: bounds)
+        roundLayer?.path = circle.cgPath
         layer.mask = roundLayer
         if(showBorder) {
             let borderLayer = CAShapeLayer()
-            let border = UIBezierPath(ovalInRect: bounds)
+            let border = UIBezierPath(ovalIn: bounds)
             border.lineWidth = borderWidth
-            borderLayer.strokeColor = borderColor.CGColor
-            borderLayer.fillColor = UIColor(white: 0.0, alpha: 0.0).CGColor
-            borderLayer.path = border.CGPath
-            border.strokeWithBlendMode(CGBlendMode.Multiply, alpha: 0.8)
+            borderLayer.strokeColor = borderColor.cgColor
+            borderLayer.fillColor = UIColor(white: 0.0, alpha: 0.0).cgColor
+            borderLayer.path = border.cgPath
+            border.stroke(with: CGBlendMode.multiply, alpha: 0.8)
             layer.addSublayer(borderLayer)
         }
     }
